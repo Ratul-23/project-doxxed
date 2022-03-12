@@ -1,6 +1,15 @@
-const options = {method: 'GET', headers: {Accept: 'application/json'}};
+const { Client, Intents } = require('discord.js');
+const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 
-fetch('https://api.opensea.io/api/v1/assets?order_by=pk&order_direction=desc&limit=20&include_orders=true', options)
-  .then(response => response.json())
-  .then(response => console.log(response))
-  .catch(err => console.error(err));
+client.on('ready', () => {
+  console.log('Logged in as ${client.user.tag}!')
+});
+
+/**
+ * const Discord = require("discord.js");
+ * const client = new Discord.Client();
+ * 
+ * client.on("ready", () => {
+ *   console.log('Logged in as ${client.user.tag}!')
+ * })
+ */
