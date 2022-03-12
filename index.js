@@ -1,6 +1,15 @@
+/** LOAD MODULES */
+
+// Interface for HTTP Pipeline
+const fetch = require('node-fetch');
+
+// Discord API
+const { Client, Intents } = require('discord.js');
+
+// Environmental Variable Library
 require('dotenv').config();
 
-const { Client, Intents } = require('discord.js');
+
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 
 client.on('ready', () => {
